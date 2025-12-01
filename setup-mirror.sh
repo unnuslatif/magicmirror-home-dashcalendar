@@ -87,7 +87,7 @@ install_modules() {
 # ----------------------------------------------------------
 choose_theme() {
   echo
-  echo "=== Choose a theme (warm dark friendly) ==="
+  echo "=== Choose a theme ==="
   echo "1) Purple (default)"
   echo "2) Blue"
   echo "3) Teal"
@@ -177,7 +177,7 @@ configure_presence() {
       PSC_MODE="PIR_MQTT"
       PSC_MODULE_ENABLED="true"
       echo "MQTT settings for presence (advanced):"
-      read -rp "MQTT server URL (e.g. mqtt://192.168.1.203:1883): " PSC_MQTT_SERVER
+      read -rp "MQTT server URL (e.g. mqtt://YOUR_MQTT_HOST:1883): " PSC_MQTT_SERVER
       read -rp "MQTT topic (e.g. sensor/mirror_presence): " PSC_MQTT_TOPIC
       PSC_MQTT_PAYLOAD_FIELD="presence"
       ;;
@@ -322,7 +322,7 @@ configure_wallpaper_source() {
   case "$WP_CHOICE" in
     1)
       echo
-      read -rp "iCloud album ID (the part after 'icloud:'): " ICLOUD_ALBUM
+      read -rp "iCloud album ID (the part after 'icloud.com/sharedalbum/#' -- the letters and numbers only): " ICLOUD_ALBUM
       WALLPAPER_SOURCE="icloud:${ICLOUD_ALBUM}"
       ;;
     3)
@@ -375,7 +375,7 @@ configure_wallpaper_source() {
       echo "  photos/username/favorites"
       echo "  photos/username/albums/ALBUM_ID"
       echo "  groups/groupname"
-      read -rp "Flickr source (after 'flickr-api:'): " FLICKR_SRC
+      read -rp "Flickr source (see 'https://github.com/kolbyjack/MMM-Wallpaper'): " FLICKR_SRC
       WALLPAPER_SOURCE="flickr-api:${FLICKR_SRC}"
       read -rp "Flickr API key (required): " WALLPAPER_FLICKR_API_KEY
       ;;
@@ -459,7 +459,7 @@ configure_apis() {
   echo "2) Rolling 4-week view"
   read -rp "Choose [1-2]: " CAL_VIEW_CHOICE
   case "$CAL_VIEW_CHOICE" in
-    2) CAL_VIEW_MODE="4weeks" ;;
+    2) CAL_VIEW_MODE="fourWeeks" ;;
     *) CAL_VIEW_MODE="currentMonth" ;;
   esac
 
@@ -473,9 +473,9 @@ configure_apis() {
   echo
   if [[ "$ENABLE_TRAFFIC_MODULE" == "true" ]]; then
     read -rp "Mapbox API token (for MMM-Traffic): " MAPBOX_TOKEN
-    read -rp "Origin coords (lon,lat) (e.g. -82.762535,40.001986): " ORIGIN_COORDS
+    read -rp "Origin coords (lon,lat) (e.g. -117.918972,33.812145): " ORIGIN_COORDS
     read -rp "Destination coords (lon,lat): " DESTINATION_COORDS
-    read -rp "Destination label (e.g. Polaris): " DEST_NAME
+    read -rp "Destination label (e.g. Work, School, etc): " DEST_NAME
   else
     MAPBOX_TOKEN=""
     ORIGIN_COORDS=""
@@ -634,7 +634,7 @@ generate_config() {
 # Main
 # ----------------------------------------------------------
 echo "==============================================="
-echo " MagicMirror Home DashCalendar Setup"
+echo " MagicMirror Home DashCalendar Setup by Unnus"
 echo "==============================================="
 
 install_modules
