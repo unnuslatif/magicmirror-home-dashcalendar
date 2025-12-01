@@ -1,0 +1,9 @@
+# OS / editor junk
+.DS_Store
+node_modules/
+
+# We only commit templates, not generated config/css
+config.js
+*.bak.*
+
+MagicMirror/
