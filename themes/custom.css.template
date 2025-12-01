@@ -1,108 +1,139 @@
-/**********************************************************
- * MagicMirror CSS Theme Template
- * Processed by envsubst in setup-mirror.sh.
- **********************************************************/
-
-:root {
-  --bg-main:        ${BG_MAIN};
-  --bg-panel:       ${BG_PANEL};
-  --bg-panel-alt:   ${BG_PANEL_ALT};
-
-  --accent-strong:  ${ACCENT_STRONG};
-  --accent-soft:    ${ACCENT_SOFT};
-  --accent-border:  ${ACCENT_BORDER};
-  --accent-glow:    ${ACCENT_GLOW};
-
-  --text-main:      #fdfaf5;
-  --text-soft:      #e5e0d5;
-}
+/* ===== Global background & fonts ===== */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
+/* Global: remove MagicMirror's huge 60px margin, keep a small frame */
 body {
-  margin: 2vh 2vw;
+  background: #050609;
+  color: #f7f7ff;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+
+  margin: 30px;       /* change this number for more/less border */
   padding: 0;
-  width: calc(100vw - 4vw);
-  height: calc(100vh - 4vh);
+  width: calc(100% - 60px);
+  height: calc(100% - 60px);
   box-sizing: border-box;
-
-  background: radial-gradient(circle at top left,
-              var(--bg-panel),
-              var(--bg-main));
-  color: var(--text-main);
-
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
-               "Inter", system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
 }
 
+/* Left / center column sizing – tuned for 1080p */
+.region.top.left,
+.region.middle.left,
+.region.bottom.left {
+  flex: 0 0 32%;
+  padding-left: 8px;
+  padding-right: 6px;
+}
+
+.region.top.center,
+.region.middle.center,
+.region.bottom.center,
+.region.top.right,
+.region.middle.right,
+.region.bottom.right {
+  flex: 0 0 68%;
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+/* Base module spacing */
 .region .module {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-/* Clock */
+/* ===== Clock styling ===== */
+
 .region.top.left .clock .module-content {
   text-align: left;
-  padding-left: 6px;
-  padding-top: 6px;
 }
 
-.clock .time {
-  font-size: clamp(38px, 4vw, 56px);
-  font-weight: 600;
-  letter-spacing: 0.03em;
+.region.top.left .clock .time {
+  font-size: 90px;
+  font-weight: 200;
+  letter-spacing: 0.04em;
 }
 
-.clock .date {
-  font-size: 16px;
-  margin-top: 4px;
-  color: var(--text-soft);
+.region.top.left .clock .date {
+  font-size: 28px;
+  font-weight: 300;
+  margin-top: 2px;
 }
 
-/* Monthly calendar */
+/* ===== Weather (MMM-OneCallWeather) ===== */
+
+.leftWeather .module-content {
+  margin-top: 8px;
+}
+
+.leftWeather .weather .current {
+  display: flex;
+  align-items: center;
+}
+
+.leftWeather .weather .weathericon {
+  font-size: 40px;
+  margin-right: 6px;
+}
+
+.leftWeather .weather .bright.large.light {
+  font-size: 28px;   /* temp */
+}
+
+.leftForecast .weather .small,
+.leftForecast .weather .dimmed {
+  font-size: 14px;
+}
+
+/* stack the forecast more compactly */
+.leftForecast .weather .forecast {
+  margin-top: 6px;
+}
+
+/* ===== MMM-MonthlyCalendar ===== */
+
 .MMM-MonthlyCalendar .monthview {
-  background: radial-gradient(circle at top left,
-              var(--accent-soft),
-              var(--bg-panel-alt));
-  border-radius: 24px;
-  padding: 18px 24px;
-  border: 1px solid var(--accent-border);
+  background: radial-gradient(circle at top left, #13041e, #050609);
+  border-radius: 26px;
+  padding: 18px 22px;
+  border: 1px solid rgba(216, 180, 254, 0.5);
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.85),
-    0 0 0 1px rgba(15, 15, 23, 0.9);
+    0 22px 55px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(18px);
+  max-width: 76vw;
+  margin-left: auto;
+  margin-right: 10px;
 }
 
 .MMM-MonthlyCalendar .month-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .MMM-MonthlyCalendar .month-header .month-name {
-  font-size: clamp(20px, 2.3vw, 26px);
+  font-size: 24px;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 .MMM-MonthlyCalendar .month-header .year {
-  font-size: 14px;
-  color: var(--text-soft);
+  font-size: 13px;
+  opacity: 0.8;
 }
 
 .MMM-MonthlyCalendar .weekday-header {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  margin-top: 6px;
-  margin-bottom: 4px;
+  margin-top: 10px;
+  margin-bottom: 8px;
 }
 
 .MMM-MonthlyCalendar .weekday-name {
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 0.12em;
-  color: rgba(248, 250, 252, 0.85);
+  opacity: 0.9;
   text-align: center;
 }
 
@@ -115,26 +146,25 @@ body {
 .MMM-MonthlyCalendar .day {
   min-height: 52px;
   padding: 3px 4px;
-  border-radius: 12px;
+  border-radius: 14px;
   background: radial-gradient(circle at top,
-              rgba(15, 11, 16, 0.92),
-              rgba(11, 7, 12, 0.98));
-  border: 1px solid rgba(55, 48, 46, 0.7);
+              rgba(15, 23, 42, 0.95),
+              rgba(17, 24, 39, 0.98));
+  border: 1px solid rgba(148, 163, 184, 0.65);
   position: relative;
 }
 
 .MMM-MonthlyCalendar .day.today {
-  border-color: var(--accent-border);
+  border-color: rgba(233, 213, 255, 0.7);
   box-shadow:
-    0 0 0 1px var(--accent-border),
-    0 0 18px var(--accent-glow);
+    0 0 0 1px rgba(233, 213, 255, 0.9),
+    0 0 18px rgba(192, 132, 252, 0.7);
 }
 
 .MMM-MonthlyCalendar .day-number {
   font-size: 13px;
   font-weight: 600;
   text-align: right;
-  color: var(--text-main);
 }
 
 .MMM-MonthlyCalendar .event,
@@ -144,40 +174,22 @@ body {
   border-radius: 8px;
   font-size: 11px;
   line-height: 1.3;
-  background: var(--accent-soft);
-  border: 1px solid var(--accent-border);
-  color: var(--text-main);
+  background: rgba(129, 140, 248, 0.3);
+  border: 1px solid rgba(191, 219, 254, 0.65);
+  color: #f9fafb;
 }
 
 .MMM-MonthlyCalendar .event-title {
   font-weight: 500;
 }
 
-/* Hide base calendar module UI */
+/* Hide base calendar module UI (we only want MMM-MonthlyCalendar visible) */
 .module.calendar {
   display: none !important;
 }
 
-/* Weather */
-.leftWeather .module-content {
-  margin-top: 6px;
-}
+/* ===== MMM-Wallpaper ===== */
 
-.leftWeather .weather .current {
-  display: flex;
-  align-items: center;
-}
-
-.leftWeather .weather .weathericon {
-  font-size: 30px;
-  margin-right: 8px;
-}
-
-.leftWeather .weather .bright.large.light {
-  font-size: 28px;
-}
-
-/* Wallpaper */
 .MMM-Wallpaper {
   width: min(25vw, 350px);
   max-width: 350px;
@@ -187,23 +199,24 @@ body {
 .MMM-Wallpaper img {
   width: 100%;
   height: auto;
-  border-radius: 20px;
+  border-radius: 22px;
   object-fit: cover;
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(15, 23, 42, 0.95);
 }
 
-/* Traffic */
+/* ========= MMM-Traffic (commute card) ========= */
+
 .module.MMM-Traffic {
   margin-top: 14px;
   padding: 14px 18px;
   border-radius: 20px;
   background: linear-gradient(135deg,
-              rgba(24, 16, 20, 0.96),
-              rgba(17, 10, 17, 0.98));
-  border: 1px solid var(--accent-border);
-  box-shadow:
-    0 0 0 1px rgba(12, 10, 16, 0.9),
-    0 12px 28px rgba(0, 0, 0, 0.8);
+              rgba(24, 18, 40, 0.96),
+              rgba(109, 40, 217, 0.82));
+  border: 1px solid rgba(216, 180, 254, 0.75);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.85);
   width: min(25vw, 350px);
 }
 
@@ -215,40 +228,12 @@ body {
 
 .module.MMM-Traffic .dimmed.small {
   font-size: 13px;
-  color: var(--text-soft);
+  opacity: 0.85;
 }
 
-/* Hide presence UI completely */
+/* ===== PresenceScreenControl (hidden UI) ===== */
+
 .MMM-PresenceScreenControl,
 .MMM-PresenceScreenControl * {
   display: none !important;
-}
-
-/* Responsive tweaks */
-@media (max-width: 1280px) {
-  .MMM-MonthlyCalendar .day {
-    min-height: 44px;
-    padding: 2px 3px;
-  }
-
-  .MMM-MonthlyCalendar .event,
-  .MMM-MonthlyCalendar .event-block {
-    font-size: 10px;
-  }
-
-  .module.MMM-Traffic .light,
-  .module.MMM-Traffic .normal {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .MMM-MonthlyCalendar .day {
-    min-height: 60px;
-  }
-
-  .MMM-MonthlyCalendar .event,
-  .MMM-MonthlyCalendar .event-block {
-    font-size: 12px;
-  }
 }
