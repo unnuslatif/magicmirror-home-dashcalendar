@@ -104,7 +104,8 @@ choose_theme() {
   ACCENT_GLOW="rgba(196, 181, 253, 0.95)"
   ACCENT_TODAY="radial-gradient(circle at top, rgba(196, 181, 253, 0.22), rgba(129, 140, 248, 0.40))"
   ACCENT_TODAY_GLOW="rgba(196, 181, 253, 0.95)"
-
+  PANEL_BASE="rgba(24, 18, 40, 0.96)"
+  
   # Purple background gradient (top → mid → bottom)
   BG_TOP="#1a1030"
   BG_MID="#050214"
@@ -119,6 +120,7 @@ choose_theme() {
       ACCENT_GLOW="rgba(147, 197, 253, 0.90)"
       ACCENT_TODAY="radial-gradient(circle at top, rgba(147, 197, 253, 0.24), rgba(59, 130, 246, 0.40))"
       ACCENT_TODAY_GLOW="rgba(147, 197, 253, 0.90)"
+      PANEL_BASE="rgba(20, 24, 35, 0.96)"
 
       BG_TOP="#111827"
       BG_MID="#060716"
@@ -132,6 +134,7 @@ choose_theme() {
       ACCENT_GLOW="rgba(45, 212, 191, 0.90)"
       ACCENT_TODAY="radial-gradient(circle at top, rgba(153, 246, 228, 0.24), rgba(45, 212, 191, 0.40))"
       ACCENT_TODAY_GLOW="rgba(45, 212, 191, 0.90)"
+      PANEL_BASE="rgba(18, 30, 28, 0.96)"
 
       BG_TOP="#052e24"
       BG_MID="#050716"
@@ -145,6 +148,7 @@ choose_theme() {
       ACCENT_GLOW="rgba(52, 211, 153, 0.90)"
       ACCENT_TODAY="radial-gradient(circle at top, rgba(167, 243, 208, 0.24), rgba(16, 185, 129, 0.40))"
       ACCENT_TODAY_GLOW="rgba(52, 211, 153, 0.90)"
+      PANEL_BASE="rgba(22, 32, 22, 0.96)"
 
       BG_TOP="#064e3b"
       BG_MID="#050716"
@@ -158,6 +162,7 @@ choose_theme() {
       ACCENT_GLOW="rgba(248, 113, 113, 0.90)"
       ACCENT_TODAY="radial-gradient(circle at top, rgba(254, 202, 202, 0.24), rgba(239, 68, 68, 0.40))"
       ACCENT_TODAY_GLOW="rgba(248, 113, 113, 0.90)"
+      PANEL_BASE="rgba(38, 18, 22, 0.96)"
 
       BG_TOP="#3b0f19"
       BG_MID="#120714"
@@ -171,6 +176,7 @@ choose_theme() {
       ACCENT_GLOW="rgba(107, 114, 128, 0.90)"
       ACCENT_TODAY="radial-gradient(circle at top, rgba(156, 163, 175, 0.24), rgba(55, 65, 81, 0.40))"
       ACCENT_TODAY_GLOW="rgba(156, 163, 175, 0.90)"
+      PANEL_BASE="rgba(28, 28, 30, 0.96)"
 
       BG_TOP="#111827"
       BG_MID="#060716"
@@ -184,6 +190,7 @@ choose_theme() {
       ACCENT_GLOW="rgba(251, 191, 36, 0.90)"
       ACCENT_TODAY="radial-gradient(circle at top, rgba(252, 211, 77, 0.24), rgba(251, 191, 36, 0.40))"
       ACCENT_TODAY_GLOW="rgba(251, 191, 36, 0.90)"
+      PANEL_BASE="rgba(36, 26, 12, 0.96)"
 
       BG_TOP="#311802"
       BG_MID="#120714"
@@ -194,7 +201,7 @@ choose_theme() {
       ;;
   esac
 
-  export ACCENT_STRONG ACCENT_SOFT ACCENT_BORDER ACCENT_GLOW ACCENT_TODAY ACCENT_TODAY_GLOW
+  export ACCENT_STRONG ACCENT_SOFT ACCENT_BORDER ACCENT_GLOW ACCENT_TODAY ACCENT_TODAY_GLOW PANEL_BASE
   export BG_TOP BG_MID BG_BOTTOM
 
   mkdir -p "${MM_DIR}/css"
