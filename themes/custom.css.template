@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
+/* Accent variables injected by setup-mirror.sh via envsubst */
+:root {
+  --accent-strong: ${ACCENT_STRONG};
+  --accent-soft: ${ACCENT_SOFT};
+  --accent-border: ${ACCENT_BORDER};
+  --accent-glow: ${ACCENT_GLOW};
+  --accent-today-bg: ${ACCENT_TODAY};
+  --accent-today-glow: ${ACCENT_TODAY_GLOW};
+}
+
+/* Base global styles & layout */
 
 body {
   background: #050609;
@@ -13,7 +24,6 @@ body {
   box-sizing: border-box;
 }
 
-
 .region.top.left,
 .region.middle.left,
 .region.bottom.left {
@@ -21,7 +31,6 @@ body {
   padding-left: 8px;
   padding-right: 6px;
 }
-
 
 .region.top.center,
 .region.middle.center,
@@ -34,6 +43,7 @@ body {
   padding-right: 25px;
 }
 
+/* Clock */
 
 .region.top.left .clock .time {
   font-size: 90px;
@@ -47,6 +57,7 @@ body {
   margin-top: 4px;
 }
 
+/* Weather (MMM-OneCallWeather) */
 
 .leftWeather .module-header,
 .leftForecast .module-header {
@@ -71,11 +82,11 @@ body {
   font-size: 14px;
 }
 
-
 .leftForecast .weather .forecast {
   margin-top: 6px;
 }
 
+/* Monthly calendar – base */
 
 .MMM-MonthlyCalendar {
   max-width: 76vw;
@@ -91,7 +102,6 @@ body {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
 }
 
-
 .MMM-MonthlyCalendar .month-header {
   font-size: 20px;
   font-weight: 500;
@@ -100,26 +110,22 @@ body {
   color: #9ca3af;
 }
 
-
 .MMM-MonthlyCalendar .weekday {
   font-size: 14px;
   font-weight: 500;
   color: #9ca3af;
 }
 
-
 .MMM-MonthlyCalendar .day-number {
   font-size: 18px;
   font-weight: 500;
 }
-
 
 .MMM-MonthlyCalendar .today {
   background: rgba(96, 165, 250, 0.18);
   border-radius: 16px;
   box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.7);
 }
-
 
 .MMM-MonthlyCalendar .event,
 .MMM-MonthlyCalendar .event-block {
@@ -131,11 +137,11 @@ body {
   white-space: normal;
 }
 
-
 .MMM-MonthlyCalendar .event-title {
   font-weight: 500;
 }
 
+/* Wallpaper – base */
 
 .MMM-Wallpaper {
   max-width: 350px;
@@ -146,6 +152,7 @@ body {
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
 }
 
+/* Traffic – base */
 
 .module.MMM-Traffic {
   margin-top: 12px;
@@ -159,15 +166,18 @@ body {
 .module.MMM-Traffic .normal {
   font-size: 16px;
 }
+
 .module.MMM-Traffic .dimmed.small {
   font-size: 13px;
 }
 
+/* Hide base calendar module */
 
 .module.calendar {
   display: none !important;
 }
 
+/* === Purple glass overrides (themeable via variables) === */
 
 body {
   margin: 30px;
@@ -184,14 +194,15 @@ body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* Calendar card */
 
 .MMM-MonthlyCalendar .monthview {
   background: radial-gradient(circle at top left,
-              rgba(124, 58, 237, 0.40),
+              var(--accent-soft),
               rgba(24, 18, 40, 0.98));
   border-radius: 24px;
   padding: 18px 24px;
-  border: 1px solid rgba(216, 180, 254, 0.70);
+  border: 1px solid var(--accent-border);
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.85),
     0 0 0 1px rgba(15, 23, 42, 0.8);
@@ -203,7 +214,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #c4b5fd;
+  color: var(--accent-strong);
 }
 
 .MMM-MonthlyCalendar .weekday {
@@ -211,7 +222,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: #a5b4fc;
+  color: var(--accent-strong);
 }
 
 .MMM-MonthlyCalendar .day-number {
@@ -220,17 +231,17 @@ body {
   color: #f9fafb;
 }
 
+/* "Today" highlight */
 
 .MMM-MonthlyCalendar .today {
-  background: radial-gradient(circle at top,
-              rgba(196, 181, 253, 0.22),
-              rgba(129, 140, 248, 0.40));
+  background: var(--accent-today-bg);
   border-radius: 18px;
   box-shadow:
-    0 0 0 1px rgba(196, 181, 253, 0.95),
+    0 0 0 1px var(--accent-today-glow),
     0 12px 28px rgba(15, 23, 42, 0.9);
 }
 
+/* Traffic card (glassy) */
 
 .module.MMM-Traffic {
   margin-top: 14px;
@@ -238,8 +249,8 @@ body {
   border-radius: 20px;
   background: linear-gradient(135deg,
               rgba(24, 18, 40, 0.96),
-              rgba(109, 40, 217, 0.82));
-  border: 1px solid rgba(216, 180, 254, 0.75);
+              var(--accent-soft));
+  border: 1px solid var(--accent-border);
   box-shadow: 0 20px 46px rgba(0, 0, 0, 0.85);
 }
 
@@ -252,9 +263,10 @@ body {
 
 .module.MMM-Traffic .dimmed.small {
   font-size: 13px;
-  color: #c4b5fd;
+  color: var(--accent-strong);
 }
 
+/* Calendar container width */
 
 .MMM-MonthlyCalendar {
   max-width: 75vw;
@@ -263,21 +275,18 @@ body {
   font-size: 16px;
 }
 
+/* Wallpaper: make sure photo fills, no dimming */
 
 .MMM-Wallpaper img {
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
-
-
   opacity: 1 !important;
   filter: none !important;
 }
-
 
 .MMM-Wallpaper .wallpaper {
   object-fit: cover !important;
   object-position: center center !important;
 }
-
 
 .MMM-Wallpaper {
   max-width: 350px;
@@ -287,19 +296,19 @@ body {
   background: rgba(15, 23, 42, 0.9);
 }
 
-
 .MMM-Wallpaper img,
 .MMM-Wallpaper .wallpaper {
   border-radius: inherit;
 }
 
+/* Weather sizing */
 
 .module.MMM-OneCallWeather {
   width: 300px !important;
   max-width: 300px !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  margin-bottom: 75px
+  margin-bottom: 75px;
 }
 
 .module.MMM-OneCallWeather .OCW-module {
@@ -307,6 +316,7 @@ body {
   transform-origin: top left;
 }
 
+/* Align left column modules vertically & center them */
 
 .region.top.left,
 .region.bottom.left {
@@ -315,18 +325,21 @@ body {
   align-items: center;
 }
 
+/* Clock layout tweaks */
 
 .region.top.left .clock .date {
   font-size: 22px !important;
   opacity: 0.85;
   text-align: center;
 }
+
 .region.top.left .clock .module-content {
   text-align: center;
   margin-left: 15px !important;
   margin-top: 15px !important;
 }
 
+/* Hide PresenceScreenControl visual UI */
 
 .MMM-PresenceScreenControl,
 .MMM-PresenceScreenControl * {
