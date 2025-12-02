@@ -14,7 +14,7 @@ This came about as my wife and I both got tons of ads for subscription-supported
 It includes:
 
 - 📅 A nice monthly Calendar view by [kolbyjack](https://github.com/kolbyjack/MMM-MonthlyCalendar) (can switch between current month or rolling 4 weeks) 
-- 🌤️ Weather & forecast by [MarcLandis](https://github.com/MarcLandis/MMM-OpenWeatherMapForecast) (via OpenWeather OneCall API)
+- 🌤️ Weather & forecast by [KristjanESPERANTO](https://github.com/KristjanESPERANTO/MMM-OneCallWeather) (via OpenWeather OneCall API)
 - 🖼️ Photo frame style slideshow (powered by kolbyjack's [MMM-Wallpaper](https://github.com/kolbyjack/MMM-Wallpaper))  
 - 🕒 Easy to read clock design (built in Clock module)
 - 👁️ Optional PIR / MQTT motion-based screen control by [rkorell](https://github.com/rkorell/MMM-PresenceScreenControl)
@@ -44,13 +44,13 @@ I installed MagicMirror on my Raspberry Pi 3b+ in my use case. A side note, the 
 
 The scripted installer automatically installs & configures:
 
-- **MMM-MonthlyCalendar** – Clean monthly/4-week calendar  
-- **MMM-OneCallWeather** – Weather & forecast  
-- **MMM-Wallpaper** – Photos / artwork slideshow  
-- **MMM-Remote-Control** – Remote browser UI / API  
-- **MMM-Traffic** - Travel time  
-- **MMM-PresenceScreenControl** (optional) – PIR / MQTT / CEC / xrandr automation  
-- **MMM-HomeAssistant** (optional) – HA through MQTT autodiscovery  
+- **[MMM-MonthlyCalendar](https://github.com/kolbyjack/MMM-MonthlyCalendar)** – Clean monthly/4-week calendar  
+- **[MMM-OneCallWeather](https://github.com/KristjanESPERANTO/MMM-OneCallWeather)** – Weather & forecast  
+- **[MMM-Wallpaper](https://github.com/kolbyjack/MMM-Wallpaper)** – Photos / artwork slideshow  
+- **[MMM-Remote-Control](https://github.com/Jopyth/MMM-Remote-Control)** – Remote browser UI / API  
+- **[MMM-Traffic](https://github.com/saml-dev/MMM-Traffic)** - Travel time  
+- **[MMM-PresenceScreenControl](https://github.com/rkorell/MMM-PresenceScreenControl)** (optional) – PIR / MQTT / CEC / xrandr automation  
+- **[MMM-HomeAssistant](https://github.com/ambarusa/MMM-HomeAssistant)** (optional) – HA through MQTT autodiscovery  
 
 ---
 
