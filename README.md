@@ -1,5 +1,5 @@
 # 🌙 MagicMirror Home DashCalendar  
-*A warm, home-friendly MagicMirror² dashboard with guided setup, theming, and automation.*
+*A warm, home-friendly MagicMirror² - intended to be a home calendar like many we see on the market*
 
 ![banner](placeholder)  
 *(need to put a screenshot here)*
@@ -8,22 +8,25 @@
 
 ## ✨ Overview
 
-**MagicMirror Home DashCalendar** is a curated MagicMirror² setup bundle designed for cozy home environments.  
+**MagicMirror Home DashCalendar** is a curated MagicMirror² setup bundle designed for a central home calendar.
+
+This came about as my wife and I both got tons of ads for subscription-supported hardware that aims to essentially do this function, but for way more upfront and recurring cost. The purpose of this repo is to help generate my personal MagicMirror layout for someone who was looking for a solution like mine, even if they are relatively new to MagicMirror.
+
 It includes:
 
-- 📅 A nice Monthly Calendar (current month or rolling 4 weeks)  
-- 🌤️ Weather & forecast via OpenWeather OneCall API  
-- 🖼️ Photo frame style slideshow (MMM-Wallpaper)  
-- 🕒 Easy to read clock design 
-- 👁️ Optional PIR / MQTT presence-based screen control  
-- 🚗 Optional commute module (MMM-Traffic)  
-- 🏠 Optional Home Assistant integration  
+- 📅 A nice monthly Calendar view by [kolbyjack](https://github.com/kolbyjack/MMM-MonthlyCalendar) (can switch between current month or rolling 4 weeks) 
+- 🌤️ Weather & forecast by [MarcLandis](https://github.com/MarcLandis/MMM-OpenWeatherMapForecast) (via OpenWeather OneCall API)
+- 🖼️ Photo frame style slideshow (powered by kolbyjack's [MMM-Wallpaper](https://github.com/kolbyjack/MMM-Wallpaper))  
+- 🕒 Easy to read clock design (built in Clock module)
+- 👁️ Optional PIR / MQTT motion-based screen control by [rkorell](https://github.com/rkorell/MMM-PresenceScreenControl)
+- 🚗 Travel Time module by [saml-dev](https://github.com/saml-dev/MMM-Traffic)
+- 🏠 Optional Home Assistant integration by [ambarusa](https://github.com/ambarusa/MMM-HomeAssistant)
 - 🎨 Theme engine (Purple, Blue, Teal, Green, Red, Grey)  
 - 🧩 Guided setup script that generates config.js + custom.css  
-- 💡 Warm, living-room-friendly dark styling  
+- 💡 Warm, living-room-friendly dark styling
 
 This is **not** a single MagicMirror module.  
-It is a **complete setup toolkit** that installs modules, configures your mirror, applies a theme, and writes:
+It is a **setup toolkit** that installs modules, configures your mirror, applies a theme, and writes:
 
 ```
 ~/MagicMirror/config/config.js
