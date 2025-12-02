@@ -86,65 +86,15 @@ install_modules() {
 # Theme selection (warm dark base + accent)
 # ----------------------------------------------------------
 choose_theme() {
+ choose_theme() {
   echo
-  echo "=== Choose a theme ==="
-  echo "1) Purple (default)"
-  echo "2) Blue"
-  echo "3) Teal"
-  echo "4) Green"
-  echo "5) Red"
-  echo "6) Grey"
-  read -rp "Theme number [1-6]: " THEME_CHOICE
-
-  BG_MAIN="#050308"
-  BG_PANEL="#140812"
-  BG_PANEL_ALT="#0b050d"
-
-  case "$THEME_CHOICE" in
-    2)
-      ACCENT_STRONG="#60a5fa"
-      ACCENT_SOFT="rgba(96,165,250,0.30)"
-      ACCENT_BORDER="rgba(191,219,254,0.65)"
-      ACCENT_GLOW="rgba(147,197,253,0.85)"
-      ;;
-    3)
-      ACCENT_STRONG="#14b8a6"
-      ACCENT_SOFT="rgba(20,184,166,0.30)"
-      ACCENT_BORDER="rgba(153,246,228,0.60)"
-      ACCENT_GLOW="rgba(45,212,191,0.85)"
-      ;;
-    4)
-      ACCENT_STRONG="#22c55e"
-      ACCENT_SOFT="rgba(34,197,94,0.30)"
-      ACCENT_BORDER="rgba(187,247,208,0.60)"
-      ACCENT_GLOW="rgba(74,222,128,0.85)"
-      ;;
-    5)
-      ACCENT_STRONG="#ef4444"
-      ACCENT_SOFT="rgba(239,68,68,0.30)"
-      ACCENT_BORDER="rgba(254,202,202,0.65)"
-      ACCENT_GLOW="rgba(248,113,113,0.85)"
-      ;;
-    6)
-      ACCENT_STRONG="#d1d5db"
-      ACCENT_SOFT="rgba(156,163,175,0.25)"
-      ACCENT_BORDER="rgba(229,231,235,0.55)"
-      ACCENT_GLOW="rgba(243,244,246,0.75)"
-      ;;
-    *)
-      ACCENT_STRONG="#a855f7"
-      ACCENT_SOFT="rgba(168,85,247,0.32)"
-      ACCENT_BORDER="rgba(233,213,255,0.70)"
-      ACCENT_GLOW="rgba(192,132,252,0.90)"
-      ;;
-  esac
-
-  export BG_MAIN BG_PANEL BG_PANEL_ALT
-  export ACCENT_STRONG ACCENT_SOFT ACCENT_BORDER ACCENT_GLOW
+  echo "=== Theme selection ==="
+  echo "For now, the default purple glass theme will be used."
+  echo "(Additional color themes can be added in a future version.)"
 
   mkdir -p "${MM_DIR}/css"
-  envsubst < "$CSS_TEMPLATE" > "${MM_DIR}/css/custom.css"
-  echo "→ Wrote themed CSS to ${MM_DIR}/css/custom.css"
+  cp "$CSS_TEMPLATE" "${MM_DIR}/css/custom.css"
+  echo "→ Copied CSS template to ${MM_DIR}/css/custom.css"
 }
 
 # ----------------------------------------------------------
